@@ -9,9 +9,7 @@ import javafx.stage.Stage;
 
 public class Start extends Application {
     Stage window;
-    Button permutation;
-    Button combination;
-    Button exit;
+    Button permutation,combination,exit;
     public void start(Stage primaryStage){
         PermutationCombination permutationCombination=new PermutationCombination();
         window=primaryStage;

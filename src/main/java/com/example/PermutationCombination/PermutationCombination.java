@@ -26,9 +26,12 @@ public class PermutationCombination {
         return factorial(n)/factorial(n-r);
     }
 
-    private void isInteger1() {
+    private void isInteger(int a) {
         try {
-            answer.setText(String.valueOf(calCombination(Integer.parseInt(textField1.getText()), Integer.parseInt(textField2.getText()))));
+            if(a==1)
+                answer.setText(String.valueOf(calCombination(Integer.parseInt(textField1.getText()), Integer.parseInt(textField2.getText()))));
+            else
+                answer.setText(String.valueOf(calPermutation(Integer.parseInt(textField1.getText()), Integer.parseInt(textField2.getText()))));
         } catch (Exception e) {
             answer.setText("Error! ---> Enter Valid Input");
         }catch (StackOverflowError e1){
@@ -37,25 +40,11 @@ public class PermutationCombination {
 
     }
 
-    private void isInteger2(){
-        try {
-            answer.setText(String.valueOf(calPermutation(Integer.parseInt(textField1.getText()), Integer.parseInt(textField2.getText()))));
-        } catch (Exception e) {
-            answer.setText("Error! ---> Enter Valid Input");
-        }catch (StackOverflowError e1){
-            answer.setText("'r>n' <--- Not Allowed");
-        }
-    }
 
-    TextField textField1;
-    TextField textField2;
-    Text answer;
-    Text t1;
-    Text t2;
-    Text t3;
+    TextField textField1,textField2;
+    Text t1,t2,t3,answer;
     Stage window;
-    Button calculate;
-    Button exit;
+    Button calculate,exit;
 
     public void permutationCombination(int choice,String title) {
         window=new Stage();
@@ -65,12 +54,12 @@ public class PermutationCombination {
             case 1:
                 window.setTitle(title);
                 t3 = new Text("P(n, r) ---> ");
-                calculate.setOnAction(e -> isInteger2());
+                calculate.setOnAction(e -> isInteger(2));
                 break;
             case 2:
                 window.setTitle(title);
                 t3 = new Text("C(n, r) ---> ");
-                calculate.setOnAction(e -> isInteger1());
+                calculate.setOnAction(e -> isInteger(1));
                 break;
         }
         exit = new Button("exit");
